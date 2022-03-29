@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns: th ="http://www.thymeleaft.org">
+<head>
+<meta charset="UTF-8">
+<title> Hr application</title>
+</head>
+<body>
+    <h1>List of employees</h1>
+    
+    
+    <table border>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Salary</th>
+        <th>Entry date</th>
+    <tbody>
+         <th th:each="employee : ${employees}">
+           <th th:text="${employee.employeeId}">Id
+           <th th:text="${employee.name}">Name
+           <th th:text="${employee.jobTitle}">Title
+           <th th:text="${employee.Salary}">Salary
+           <th th:text="${employee.dateofStarkWork}">EntryDate
+    </table>
+    <br><br>
+    
+    <form th:action="@{employees}" method ="post" th:object="${newemployees}">
+     Id: <input th:field="*{employeeid}" /> <br>
+     Name: <input th:field="*{name}" /> <br>
+     Title: <input th:field="*{title}" /> <br>
+     Salary: <input th:field="*{salary}" /> <br>
+     EntryDate: <input th:field="*{dateofStarkWork}" /> <br>
+       <input type="submit"  value="Add" /> 
+    </form>
+    
+</body>
+</html>
